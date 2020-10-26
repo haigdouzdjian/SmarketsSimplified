@@ -18,4 +18,4 @@ yarn install
 yarn start
 ```
 
-> **Note:** Yarn must be set up locally (https://yarnpkg.com). Node_Modules located inside of repository as well
+> **Note:** Yarn must be set up locally (https://yarnpkg.com)
