@@ -18,4 +18,4 @@ yarn install
 yarn start
 ```
 
-> **Note:** Yarn must be set up locally (https://yarnpkg.com)
+> **Note:** Yarn must be installed locally (https://yarnpkg.com)
