@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { ReactComponent as Arrow } from '../images/arrow-right.svg';
 import Modal from './Modal';
-
-const ModalWrapper = styled.a`
-    text-decoration: none;
-`
 
 const ArrowContainer = styled.div`
     opacity: 0;
@@ -61,6 +57,20 @@ const TileSportType = styled.p`
     bottom: 20px;
 `
 
+const bringDownFade = keyframes`
+  from {
+      transform: translateY(-50%);opacity: 0;
+      }
+  to {
+      transform: translateY(0);opacity: 1;
+      }
+`
+
+const ModalWrapper = styled.a`
+    text-decoration: none;
+    animation: ${bringDownFade} 1s;
+`
+
 const formatDate = (s) => {
     var date = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(s).toLocaleDateString([], date);
@@ -80,10 +90,10 @@ const Tile = (props) => {
     var league = props.data.full_slug ? props.data.full_slug.split("/")[3].replace(/-/g, ' ') : null;
     var shortName = props.data.short_name;
 
-    var arr = [date, time, league, type, shortName];
+    var arr = [type, league, date, time, shortName];
     return (
         <>
-            <ModalWrapper href="#" onClick={() => setShow(true)}>
+            <ModalWrapper onClick={() => setShow(true)}>
                 <TileWrapper>
                     <TileHeading>
                         {name}

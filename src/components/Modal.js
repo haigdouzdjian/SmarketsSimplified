@@ -1,6 +1,15 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const bringDownFade = keyframes`
+  from {
+      transform: translateY(-50%);opacity: 0;
+      }
+  to {
+      transform: translateY(0);opacity: 1;
+      }
+`
 
 const ModalOverlay = styled.div`
     position: fixed;
@@ -25,6 +34,7 @@ const ModalContainer = styled.div`
     max-width: 20rem;
     max-height: 100%;
     margin: 0 auto;
+    animation: ${bringDownFade} .4s;
 `
 
 const ModalClose = styled.button`
@@ -50,6 +60,7 @@ const ModalBody = styled.div`
     background: #2b2a2d;
     border-radius: 6px;
     box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 20px 60px 10px rgba(0,0,0,0.2);
+    margin: 0 auto;
 `
 
 const Header = styled.p`
@@ -62,11 +73,24 @@ const Header = styled.p`
     border-bottom: 1px solid #EBEBEB;
 `
 
-const Children = styled.p`
-    font-size: ${props => props.size};
-    font-weight: ${props => props.weight};
-    padding: 1px 0 0 ${props => props.pad};
+const Name = styled.p`
+    font-size: 18px;
+    font-weight: 400;
+    margin: 20px 0 0 20px;
     color: #EBEBEB;
+`
+
+const Children = styled.p`
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0 0 0 12px;
+    color: #EBEBEB;
+    line-height: .8;
+`
+
+const ChildContainer = styled.div`
+    border-left: 1px solid #0CCD93;
+    margin: 30px 0 0 40px;
 `
 
 const Modal = (props) => {
@@ -80,24 +104,20 @@ const Modal = (props) => {
                     <Header>
                         More Info
                     </Header>
-                    <Children size="18px" weight="400" pad="20px">
+                    <Name>
                         {props.name}
-                    </Children>
-                    {
-                        props.arr && props.arr.map((e, key) => <Children size="16px" weight="300" pad="40px" key={key}>{e}</Children>)
-                    }
+                    </Name>
+                    <ChildContainer>
+                        {
+                            props.arr && props.arr.map((e, key) => <Children key={key}>{e}</Children>)
+                        }
+                    </ChildContainer>
                 </ModalBody>
             </ModalContainer>
         </ModalOverlay>
     )
 
     return res;
-}
-
-Children.propTypes = {
-    size: PropTypes.string,
-    weight: PropTypes.string,
-    pad: PropTypes.string,
 }
 
 Modal.propTypes = {

@@ -31,7 +31,7 @@ const heartAnimation = keyframes`
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2);
-    transform: scale(1.);
+    transform: scale(1.2);
   }
   75% {
     -moz-transform: scale(1);
