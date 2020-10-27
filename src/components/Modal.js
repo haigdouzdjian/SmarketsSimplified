@@ -4,11 +4,19 @@ import styled, { keyframes } from 'styled-components';
 
 const bringDownFade = keyframes`
   from {
-      transform: translateY(-50%);opacity: 0;
-      }
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%); 
+    opacity: 0;
+    }
   to {
-      transform: translateY(0);opacity: 1;
-      }
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+    }
 `
 
 const ModalOverlay = styled.div`

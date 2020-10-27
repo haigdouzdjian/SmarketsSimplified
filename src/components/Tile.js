@@ -24,7 +24,6 @@ const TileWrapper = styled.li`
     min-height: 200px;
     display: block;
     position: relative;
-    margin: 10px;
     padding: 20px 40px 20px 30px;
     border-radius: 6px;
     color: #EBEBEB;
@@ -68,6 +67,7 @@ const bringDownFade = keyframes`
 
 const ModalWrapper = styled.a`
     text-decoration: none;
+    margin: 10px;
     animation: ${bringDownFade} 1s;
 `
 
